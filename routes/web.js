@@ -10,7 +10,7 @@ const UserController = require('../controller/UserController')
 router.get('/', FrontendController.home)
 router.get('/about', FrontendController.about)
 router.get('/contact', FrontendController.contact)
-router.get('/bloglist', FrontendController.bloglist)
+router.get('/bloglist', FrontendController.Bloglist)
 router.get('/blogdetail/:id', FrontendController.blogdetail)
 router.get('/login', FrontendController.login)
 

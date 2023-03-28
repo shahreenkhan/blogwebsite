@@ -1,65 +1,21 @@
 <%- include('../front/header.ejs') %>
-
 <section class="blog-list mtb-40">
-    <div class="container">
-      <h1>Blogs</h1>
-      <div class="row">
+  <div class="container">
+    <h1>Blogs</h1>
+    <div class="row">
+      <% d.forEach((item)=>{ %>
         <div class="col-md-4">
-          <div class="blog-box">
-            <img src="assets/images/img1.jpg" alt="blog1" />
-            <h3>Sample blog post 1</h3>
-            <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <a href="" class="btn a">Read more...</a>
-          </div>
+            <div class="blog-box">
+                <img style="height: 250px; width: 350px;" src="<%= item.image.url %>" alt="blog1" />
+                <h3><%= item.title %></h3>
+                <p>by <span>RSGiTECH</span> on <span><%= item.createdAt.toLocaleDateString() %></span></p>
+                <p style="text-align: justify;"><%= item.description.slice(0,110) %>..............</p>
+                <a href="/blogdetail/<%= item._id %>" class="btn" style="background: radial-gradient(circle, rgba(238,174,224,1) 0%, rgba(157,98,179,1) 100%);">Read more...</a>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="blog-box">
-            <img src="assets/images/img2.jpg" alt="blog1" />
-            <h3>Sample blog post 2</h3>
-            <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <a href="" class="btn a">Read more...</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-box">
-            <img src="assets/images/img3.jpg" alt="blog1" />
-            <h3>Sample blog post 3</h3>
-            <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <a href="" class="btn a">Read more...</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-box">
-            <img src="assets/images/img4.jpg" alt="blog1" />
-            <h3>Sample blog post 4</h3>
-            <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <a href="" class="btn a">Read more...</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-box">
-            <img src="assets/images/img5.jpg" alt="blog1" />
-            <h3>Sample blog post 5</h3>
-            <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <a href="" class="btn a">Read more...</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-box">
-            <img src="assets/images/img6.jpg" alt="blog1" />
-            <h3>Sample blog post 6</h3>
-            <p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <a href="" class="btn a">Read more...</a>
-          </div>
-        </div>
-      </div>
+        <% }) %>
     </div>
-  </section>
+  </div>
+</section>
 
 <%- include('../front/footer.ejs') %>

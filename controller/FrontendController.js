@@ -18,11 +18,17 @@ class FrontendController{
     static contact = async(req,res)=>{
         res.render('front/contact')
     }
-    static bloglist = async(req,res)=>{
-        res.render('front/bloglist')
+    static Bloglist=async(req,res)=>{
+        try{
+            const recent_blog = await BlogModel.find()
+            res.render('front/bloglist',{d:recent_blog})
+        }catch(err){
+           console.log(err) 
+        }
+        
     }
     static blogdetail = async(req,res)=>{
-        console.log(req.params.id)
+        // console.log(req.params.id)
         try{
             const category = await CategoryModel.find()
             const recentblog = await BlogModel.find().sort({_id:-1}).limit(4)
